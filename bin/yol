@@ -2,7 +2,7 @@
 
 var cmd = require('../lib/yol');
 
-var args = process.argv[0] == 'node' ? process.argv.slice(2) : process.argv.slice(1);
+var args = process.argv[0] == 'yol' ? process.argv.slice(1) : process.argv.slice(2);
 
 var actions = cmd.getActions();
 var meta = actions[args[0]];

@@ -1,8 +1,10 @@
 {
   "name": "yol",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My project auxiliary tool",
-  "bin": { "yol": "bin/yol" },
+  "bin": {
+    "yol": "bin/yol"
+  },
   "main": "bin/yol",
   "repository": {
     "type": "git",
@@ -14,5 +16,8 @@
     "url": "https://github.com/leozdgao/yol/issues"
   },
   "homepage": "https://github.com/leozdgao/yol",
-  "preferGlobal": true
+  "preferGlobal": true,
+  "dependencies": {
+    "bluebird": "^2.9.13"
+  }
 }
