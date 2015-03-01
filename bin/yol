@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var cmd = require('../lib/yol');
+
+var args = process.argv[0] == 'node' ? process.argv.slice(2) : process.argv.slice(1);
+
+var actions = cmd.getActions();
+var meta = actions[args[0]];
+
+if(meta) {
+
+	var action = cmd[meta.method];
+	if(action) {
+
+		action.apply(null, args.slice(1));	
+	} 
+	else {
+
+		console.log('Unfunctional command.');
+	}
+}
+else {
+
+	console.log('Unknown command. Type "yol help" to see what can do.');
+}
