@@ -16,11 +16,22 @@ var del = require('del');
 
 // release
 gulp.task('default', ['release']);
-gulp.task('release', ['release:css', 'release:js']); 
+gulp.task('release', ['release:css', 'release:js', 'copy:lib']); 
 
 gulp.task('clean', function(cb) {
 
 	del([files.release], cb);
+});
+
+gulp.task('clean:lib', function(cb) {
+
+	del([files.librealse || files.release], cb);
+});
+
+gulp.task('copy:lib', ['clean:lib'], function() {
+
+	return gulp.src(files.lib)
+			.pipe(gulp.dest(files.librealse || files.release));
 });
 
 gulp.task('release:css', ['clean'], function() {
@@ -54,7 +65,7 @@ gulp.task('release:js', ['clean'], function() { // add jslint and uTest later ma
 
 //-----------------------------------------------> for dev
 
-gulp.task('dev', ['concat', 'watch', 'server']);
+gulp.task('dev', ['concat', 'copy:lib', 'watch', 'server']);
 gulp.task('concat', ['concat:css', 'concat:js']);
 
 gulp.task('server', function() {
