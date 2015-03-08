@@ -25,7 +25,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('clean:lib', function(cb) {
 
-	del([files.librealse], cb);
+	del([files.librealse || files.release], cb);
 });
 
 gulp.task('copy:lib', ['clean:lib'], function() {
