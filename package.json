@@ -1,6 +1,6 @@
 {
   "name": "yol",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "My project auxiliary tool",
   "bin": {
     "yol": "bin/yol"
